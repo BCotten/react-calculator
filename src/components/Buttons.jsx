@@ -22,10 +22,6 @@ export default function Button(props) {
     const targetValue = event.target.dataset.value;
     const targetText = event.target.dataset.text;
 
-    console.log("Clicked button type:", targetType);
-    console.log("Clicked button value:", targetValue);
-    console.log("Clicked button text:", targetText);
-
     // controls the memory buttons
     if (targetType === "memory") {
       memoryConditions(targetValue);
@@ -49,16 +45,13 @@ export default function Button(props) {
       let displayString;
       if (operatorsCheck.test.display) {
         displayString = display.slice(0, -1);
-        console.log(displayString);
         displayNum = Number(displayString);
       } else {
         displayNum = Number(display);
       }
 
       if (displayNum > 0) {
-        console.log(display);
         setDisplay("-" + display);
-        console.log(display);
       } else if (displayNum < 0) {
         displayString = display.slice(1);
         setDisplay(displayString);
@@ -71,7 +64,6 @@ export default function Button(props) {
 
     // const -/+ controls the minus button
     if (display[0] === "-") {
-      console.log("minus");
       const newDisplay = display.slice(1);
       if (
         operatorsCheck.test(targetText) &&
@@ -83,7 +75,6 @@ export default function Button(props) {
       ) {
         console.log(targetText);
         const combine = display.concat(" ").concat(targetText);
-        setPrevDisplay("");
         setPrevDisplay(combine);
         setDisplay("");
       }
@@ -100,7 +91,6 @@ export default function Button(props) {
     ) {
       console.log(targetText);
       const combine = display.concat(" ").concat(targetText);
-      setPrevDisplay("");
       setPrevDisplay(combine);
       setDisplay("");
     }
@@ -113,7 +103,6 @@ export default function Button(props) {
     // if the button type is "number", call the number function
     if (targetType === "number") {
       if (display.length === 1 && display === "0") {
-        setDisplay(" ");
         setDisplay(targetValue);
       } else if (isEqual) {
         setDisplay(" ");
@@ -127,10 +116,8 @@ export default function Button(props) {
 
     // controls the square root button
     if (targetValue === "Square Root") {
-      if (display.length === 1 && display === "0") {
-        setDisplay(" ");
-        setDisplay(targetText);
-      }
+      let displayNum = Math.sqrt(Number(display));
+      setDisplay(displayNum);
     }
 
     // controls the percent button
@@ -138,11 +125,10 @@ export default function Button(props) {
       let newDisplay;
       let displayNum;
       if (display[0] === "-") {
-        newDisplay = display.slice(1);
-        displayNum = Number(newDisplay);
+        displayNum = Number(display);
         displayNum = displayNum / 100;
         newDisplay = displayNum.toString();
-        setDisplay("-" + newDisplay);
+        setDisplay(newDisplay);
       } else {
         displayNum = Number(display);
         displayNum = displayNum / 100;
@@ -157,7 +143,6 @@ export default function Button(props) {
     if (value === "All Clear") {
       setDisplay("0");
       setPrevDisplay("0");
-      setMemory(0);
     } else if (value === "Clear" && display !== "0") {
       setDisplay(display.slice(0, -1));
     }
@@ -181,11 +166,7 @@ export default function Button(props) {
     let displayNum;
     let prevDisplayNum;
     let sum;
-    if (display[0] === "\u221a") {
-      displayNum = Number(display.slice(1));
-      console.log(displayNum);
-      sum = Math.sqrt(displayNum);
-    } else if (prevDisplay.at(-1) === "+") {
+    if (prevDisplay.at(-1) === "+") {
       prevDisplayNum = Number(prevDisplay.slice(0, -1));
       displayNum = Number(display);
       sum = prevDisplayNum + displayNum;
