@@ -1,0 +1,90 @@
+
+button[data-type="clear"] {
+  background-color: #ff0000;
+}
+
+button[data-value="All Clear"] {
+  grid-area: 1 / 1 / 2 /2
+}
+
+button[data-type="memory"] {
+  background-color: yellow;
+  grid-row: 1;
+}
+
+button[data-type="operator"] {
+  background-color: orange;
+}
+
+button[data-value="Equal"] {
+  background-color: blue;
+  grid-area: 5 / 5 / 6 / 7;
+}
+
+button[data-value="Subtract"] {
+  grid-area: 4 / 6 / 5 / 7;
+}
+
+button[data-value="Percent"] {
+  grid-area: 2 / 5 / 3 / 6;
+}
+
+button[data-value="Square Root"] {
+  grid-area: 2 / 6 / 3 / 7;
+}
+
+button[data-value="Multiply"] {
+  grid-area: 3 / 5 / 3 / 6;
+}
+
+button[data-value="Divide"] {
+  grid-area: 3 / 6 / 4 / 7;
+}
+
+button[data-value="Add"] {
+  grid-area: 4 / 5 / 5 / 6;
+}
+
+button[data-value="+/-"] {
+  grid-area: 5 / 4 / 6 / 5;
+}
+
+button[data-value="."] {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+button[data-value="0"] {
+  grid-area: 5 / 2 / 6 / 3;
+}
+
+button[data-value="3"] {
+  grid-area: 4 / 4 / 5 / 5;
+}
+
+button[data-value="2"] {
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+button[data-value="1"] {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+button[data-value="6"] {
+  grid-area: 3 / 4 / 4 / 5;
+}
+
+button[data-value="5"] {
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+button[data-value="4"] {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+
+
+
+
+
+
+

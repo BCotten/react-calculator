@@ -1,9 +1,9 @@
-export const calculatorButtons = [
+const calculatorButtons = [
     {
         type: 'clear',
         className: 'ac',
         text: 'AC',
-        value: 'All Clear'
+        value: 'All Clear',
     },
     {
         type: 'clear',
@@ -156,3 +156,5 @@ export const calculatorButtons = [
         value: 'Equal',
     }
 ]
+
+export const calculatorButtonsId = calculatorButtons.map((button, index) => ({ ...button, id: index + 1 }));

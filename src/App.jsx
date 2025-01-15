@@ -1,16 +1,15 @@
-import './App.css'
-import CalculatorFront from './components/CalculatorFront'
-
+import "./App.css";
+import CalculatorFront from "./components/CalculatorFront";
 
 function App() {
-
-
   return (
     <>
-      <h1>React Calculator</h1>
-      <CalculatorFront/>
+      <div className="p-8 text-black bg-white bg-opacity-50 rounded-lg shadow-lg backdrop-filter backdrop-blur-md">
+        <h1>React Calculator</h1>
+        <CalculatorFront />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

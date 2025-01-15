@@ -1,49 +1,34 @@
-import { calculatorButtons } from "../assets/calculator-bonus-03-button-data";
+import { calculatorButtonsId } from "../assets/calculator-bonus-03-button-data";
 import { useState } from "react";
-import Button from "./Button";
+import Button from "./Buttons";
 
 export default function CalculatorFront() {
-  const [display, setDisplay] = useState(0);
-  const calculatorButtonsDetails = calculatorButtons;
+  const [display, setDisplay] = useState("0");
+  const [prevDisplay, setPrevDisplay] = useState("0");
+  const [memory, setMemory] = useState(0);
+  const calculatorButtonsDetails = calculatorButtonsId;
   console.log(calculatorButtonsDetails.length);
 
   return (
-    <div>
-      <h2>{display}</h2>
-      <div>
-        <Button value={display} details={calculatorButtonsDetails[0]} />
-        <Button details={calculatorButtonsDetails[1]} />
+    <>
+      <div className="flex justify-between">
+        <p className="p-2 pl-2 text-m"> Memory: {memory}</p>
+        <p className="p-2 pr-2 text-m">{prevDisplay}</p>
       </div>
-      <div>
-        <Button details={calculatorButtonsDetails[2]} />
-        <Button details={calculatorButtonsDetails[3]} />
-        <Button details={calculatorButtonsDetails[4]} />
-        <Button details={calculatorButtonsDetails[5]} />
-        <Button details={calculatorButtonsDetails[6]} />
+      <h2 className="p-4 mb-4 text-lg font-bold text-right border-4 border-solid rounded-lg m gray-400 w-92">
+        {display}
+      </h2>
+      <div className="grid grid-cols-6 grid-rows-5 gap-4">
+        <Button
+          memory={memory}
+          setMemory={setMemory}
+          prevDisplay={prevDisplay}
+          setPrevDisplay={setPrevDisplay}
+          display={display}
+          setDisplay={setDisplay}
+          details={calculatorButtonsDetails}
+        />
       </div>
-      <div>
-        <Button details={calculatorButtonsDetails[7]} />
-        <Button details={calculatorButtonsDetails[8]} />
-        <Button details={calculatorButtonsDetails[9]} />
-        <Button details={calculatorButtonsDetails[10]} />
-        <Button details={calculatorButtonsDetails[11]} />
-        <Button details={calculatorButtonsDetails[12]} />
-        <Button details={calculatorButtonsDetails[13]} />
-        <Button details={calculatorButtonsDetails[14]} />
-        <Button details={calculatorButtonsDetails[15]} />
-        <Button details={calculatorButtonsDetails[16]} />
-        <Button details={calculatorButtonsDetails[17]} />
-      </div>
-      <div>
-        <Button details={calculatorButtonsDetails[18]} />
-        <Button details={calculatorButtonsDetails[19]} />
-        <Button details={calculatorButtonsDetails[20]} />
-        <Button details={calculatorButtonsDetails[21]} />
-        <Button details={calculatorButtonsDetails[22]} />
-        <Button details={calculatorButtonsDetails[23]} />
-        <Button details={calculatorButtonsDetails[24]} />
-      </div>
-      <Button details={calculatorButtonsDetails[25]} />
-    </div>
+    </>
   );
 }
